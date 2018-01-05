@@ -62,8 +62,6 @@ def check_if_word(word):
 
 def num_words(tweet):
     sanitized_tweet = re.sub("[^\s\w\d\-']", "", tweet)
-    print(tweet)
-    print(sanitized_tweet)
     words = sanitized_tweet.split()
     count = 0
     for word in words:

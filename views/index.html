@@ -1,19 +1,31 @@
+<!doctype html>
 <html>
     <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Tweet Search</title>
     </head>
     <body>
-        <h3>Display the last five tweets from a user</h3>
-        <label>Username: <input type="text" name="username" id="username" required></label>
-        <br><br>
-        <input type="button" name="search" value="Search" onclick="search();">
-        <br><br>
-        <div>
+        <div class="container">
+            <h1 class="display-6">Display the last five tweets from a user</h1>
+            <br>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                </div>
+                <input placeholder="Username" type="text" name="username" id="username" required>
+                <input type="button" class="btn btn-primary" name="search" value="Search" onclick="search();">
+            </div>
+            <br>
             % if tweets:
                 % for tweet in tweets:
-                    <span>Tweet: {{tweet["text"]}}</span><br>
-                    <span>Time: {{tweet["time"]}}</span><br>
-                    <span>Number of English words: {{tweet["words"]}}</span><br><br>
+                    <div class="card">
+                        <div class="card-title">Result:</div>
+                        <div class="card-subtitle text-muted">Date: {{tweet["time"]}}</div>
+                        <div class="list-group-item">Tweet: {{tweet["text"]}}</div>
+                        <div class="card-footer text-muted">Number of English words: {{tweet["words"]}}</div>
+                    </div>
+                    <br>
                 % end
             % end
         </div>
