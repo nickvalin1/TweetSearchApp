@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Tweet Search</title>
+    </head>
+    <body>
+        <h3>Display the last five tweets from a user</h3>
+        <label>Username: <input type="text" name="username" id="username" required></label>
+        <br><br>
+        <input type="button" name="search" value="Search" onclick="search();">
+        <br><br>
+        <div>
+            % if tweets:
+                % for tweet in tweets:
+                    <span>Tweet: {{tweet["text"]}}</span><br>
+                    <span>Time: {{tweet["time"]}}</span><br>
+                    <span>Number of English words: {{tweet["words"]}}</span><br><br>
+                % end
+            % end
+        </div>
+        <script>
+            function search() {
+                let username = document.getElementById("username").value;
+                window.location.replace("/" + username)
+            }
+        </script>
+    </body>
+</html>
